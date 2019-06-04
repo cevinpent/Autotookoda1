@@ -1,0 +1,57 @@
+﻿@model IEnumerable<Autotookoda1.Models.Audi>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.tellija)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.auto)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.viga)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.parandatud)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.tasutud)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.tellija)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.auto)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.viga)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.parandatud)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.tasutud)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.id })
+        </td>
+    </tr>
+}
+
+</table>

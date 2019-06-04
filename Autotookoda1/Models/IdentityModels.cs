@@ -29,5 +29,7 @@ namespace Autotookoda1.Models
         {
             return new ApplicationDbContext();
         }
-    }
+
+		public System.Data.Entity.DbSet<Autotookoda1.Models.Audi> Audis { get; set; }
+	}
 }
