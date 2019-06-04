@@ -29,7 +29,8 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
+    @foreach (var item in Model)
+    {
     <tr>
         <td>
             @Html.DisplayFor(modelItem => item.tellija)
@@ -41,17 +42,32 @@
             @Html.DisplayFor(modelItem => item.viga)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.parandatud)
+            @if (item.parandatud == 1)
+            {
+                @:Parandatud
+            }
+            else if (item.parandatud == -1)
+            {
+                @:Pole veel parandatud
+            }
+        </td>
+
+        
+            
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.tasutud)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.id })
+            @if (item.tasutud == 1)
+            {
+                @:Klient on teenuse eest tasunud
+            }
+            else if (item.tasutud == -1)
+            {
+                @:Klient pole veel teenuse eest tasunud
+            }
+            
         </td>
     </tr>
-}
+
+    }
 
 </table>

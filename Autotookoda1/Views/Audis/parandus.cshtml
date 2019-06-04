@@ -1,0 +1,64 @@
+﻿@model IEnumerable<Autotookoda1.Models.Audi>
+
+@{
+    ViewBag.Title = "parandus";
+}
+
+<h2>parandus</h2>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.tellija)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.auto)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.viga)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.parandatud)
+        </th>
+        @*<th>
+            @Html.DisplayNameFor(model => model.tasutud)
+        </th>*@
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.tellija)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.auto)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.viga)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.parandatud)
+            </td>
+            @*<td>
+                @Html.DisplayFor(modelItem => item.tasutud)
+
+            </td>*@
+            <td>
+                @if (item.parandatud == 1)
+                {
+                    @:Valmis
+                }
+                else if (item.parandatud == -1)
+                {
+                    @:Pole valmis
+                }
+            </td>
+       
+            <td>
+                @Html.ActionLink("Valmis", "PassFail", new { id = item.id, part = "parandus", result = 1 })
+
+            </td>
+
+        </tr>
+    }

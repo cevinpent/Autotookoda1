@@ -183,7 +183,6 @@ namespace Autotookoda1.Controllers
 				Where(m => m.tasutud == -1).
 				ToList();
 			return View(model);
-
 		}
 		public ActionResult PassFail(int? id, string part, int result)
 		{
@@ -201,6 +200,7 @@ namespace Autotookoda1.Controllers
 				switch (part)
 				{
 					case "maks": { audi.tasutud = result; break; }
+					case "parandus": { audi.parandatud = result; break; }
 				
 
 					default:
@@ -214,6 +214,33 @@ namespace Autotookoda1.Controllers
 			return RedirectToAction("Index");
 
 
+		}
+		
+		public ActionResult parandus()
+			{
+				var audis = db.Audis.
+					Where(m => m.parandatud == -1).
+					ToList();
+				return View(audis);
+
+			}
+
+		
+
+		// POST: Audis/Edit/5
+		// To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+		// more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+		[HttpPost]
+		[ValidateAntiForgeryToken]
+		public ActionResult Parandamine([Bind(Include = "id,tellija,auto,viga,parandatud,tasutud")] Audi audi)
+		{
+			if (ModelState.IsValid)
+			{
+				db.Entry(audi).State = EntityState.Modified;
+				db.SaveChanges();
+				return RedirectToAction("Index");
+			}
+			return View(audi);
 		}
 
 	}

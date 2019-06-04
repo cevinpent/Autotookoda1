@@ -53,9 +53,7 @@
                 @:Pole valmis
             }
         </td>
-        @*<td>
-            @Html.DisplayFor(modelItem => item.pakitud)
-        </td>*@
+      
         <td>
             @Html.ActionLink("Valmis", "PassFail", new { id = item.id, part = "maks", result = 1 })
 

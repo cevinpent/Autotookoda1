@@ -251,6 +251,8 @@
     <Content Include="Views\Audis\telli.cshtml" />
     <Content Include="Views\Audis\Maksmine.cshtml" />
     <Content Include="Views\Audis\maks.cshtml" />
+    <Content Include="Views\Audis\Parandamine.cshtml" />
+    <Content Include="Views\Audis\parandus.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
