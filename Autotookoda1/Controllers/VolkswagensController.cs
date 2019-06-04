@@ -9,108 +9,108 @@ using System.Web.Mvc;
 using Autotookoda1.Models;
 
 namespace Autotookoda1.Controllers
-{//
-    public class AudisController : Controller
+{
+    public class VolkswagensController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
-        // GET: Audis
+        // GET: Volkswagens
         public ActionResult Index()
         {
-            return View(db.Audis.ToList());
+            return View(db.Volkswagens.ToList());
         }
 
-        // GET: Audis/Details/5
+        // GET: Volkswagens/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Audi audi = db.Audis.Find(id);
-            if (audi == null)
+            Volkswagen volkswagen = db.Volkswagens.Find(id);
+            if (volkswagen == null)
             {
                 return HttpNotFound();
             }
-            return View(audi);
+            return View(volkswagen);
         }
 
-        // GET: Audis/Create
+        // GET: Volkswagens/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Audis/Create
+        // POST: Volkswagens/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "id,tellija,auto,viga,parandatud,tasutud")] Audi audi)
+        public ActionResult Create([Bind(Include = "id,tellija,auto,viga,parandatud,tasutud")] Volkswagen volkswagen)
         {
             if (ModelState.IsValid)
             {
-                db.Audis.Add(audi);
+                db.Volkswagens.Add(volkswagen);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(audi);
+            return View(volkswagen);
         }
 
-        // GET: Audis/Edit/5
+        // GET: Volkswagens/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Audi audi = db.Audis.Find(id);
-            if (audi == null)
+            Volkswagen volkswagen = db.Volkswagens.Find(id);
+            if (volkswagen == null)
             {
                 return HttpNotFound();
             }
-            return View(audi);
+            return View(volkswagen);
         }
 
-        // POST: Audis/Edit/5
+        // POST: Volkswagens/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "id,tellija,auto,viga,parandatud,tasutud")] Audi audi)
+        public ActionResult Edit([Bind(Include = "id,tellija,auto,viga,parandatud,tasutud")] Volkswagen volkswagen)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(audi).State = EntityState.Modified;
+                db.Entry(volkswagen).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(audi);
+            return View(volkswagen);
         }
 
-        // GET: Audis/Delete/5
+        // GET: Volkswagens/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Audi audi = db.Audis.Find(id);
-            if (audi == null)
+            Volkswagen volkswagen = db.Volkswagens.Find(id);
+            if (volkswagen == null)
             {
                 return HttpNotFound();
             }
-            return View(audi);
+            return View(volkswagen);
         }
 
-        // POST: Audis/Delete/5
+        // POST: Volkswagens/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Audi audi = db.Audis.Find(id);
-            db.Audis.Remove(audi);
+            Volkswagen volkswagen = db.Volkswagens.Find(id);
+            db.Volkswagens.Remove(volkswagen);
             db.SaveChanges();
             return RedirectToAction("Index");
         }
@@ -123,9 +123,7 @@ namespace Autotookoda1.Controllers
             }
             base.Dispose(disposing);
         }
-
-		// GET: Audis/Create
-		public ActionResult telli()//tellimise vaade see on see vaade kus toimub tellimine jms.
+		public ActionResult telli()
 		{
 			return View();
 		}
@@ -135,31 +133,31 @@ namespace Autotookoda1.Controllers
 		// more details see https://go.microsoft.com/fwlink/?LinkId=317598.
 		[HttpPost]
 		[ValidateAntiForgeryToken]
-		public ActionResult telli([Bind(Include = "id,tellija,auto,viga,parandatud,tasutud")] Audi audi)
+		public ActionResult telli([Bind(Include = "id,tellija,auto,viga,parandatud,tasutud")] Volkswagen volkswagen)
 		{
 			if (ModelState.IsValid)
 			{
-				db.Audis.Add(audi);
+				db.Volkswagens.Add(volkswagen);
 				db.SaveChanges();
 				return RedirectToAction("Index");
 			}
 
-			return View(audi);
+			return View(volkswagen);
 		}
 
-		// see on vaade kus on saab märkida ära firma juht kas vastava töö eest on tasutud ka vastav tasu.
+		// GET: Audis/Edit/5
 		public ActionResult Maksmine(int? id)
 		{
 			if (id == null)
 			{
 				return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
 			}
-			Audi audi = db.Audis.Find(id);
-			if (audi == null)
+			Volkswagen volkswagen = db.Volkswagens.Find(id);
+			if (volkswagen == null)
 			{
 				return HttpNotFound();
 			}
-			return View(audi);
+			return View(volkswagen);
 		}
 
 		// POST: Audis/Edit/5
@@ -167,19 +165,19 @@ namespace Autotookoda1.Controllers
 		// more details see https://go.microsoft.com/fwlink/?LinkId=317598.
 		[HttpPost]
 		[ValidateAntiForgeryToken]
-		public ActionResult Maksmine([Bind(Include = "id,tellija,auto,viga,parandatud,tasutud")] Audi audi)
+		public ActionResult Maksmine([Bind(Include = "id,tellija,auto,viga,parandatud,tasutud")] Volkswagen volkswagen)
 		{
 			if (ModelState.IsValid)
 			{
-				db.Entry(audi).State = EntityState.Modified;
+				db.Entry(volkswagen).State = EntityState.Modified;
 				db.SaveChanges();
 				return RedirectToAction("Index");
 			}
-			return View(audi);
+			return View(volkswagen);
 		}
-		public ActionResult maks() // see aitab sellega et kui on makstud siis ei ole seda enam maksmise vaates näha.
+		public ActionResult maks()
 		{
-			var model = db.Audis.
+			var model = db.Volkswagens.
 				Where(m => m.tasutud == -1).
 				ToList();
 			return View(model);
@@ -190,8 +188,8 @@ namespace Autotookoda1.Controllers
 			{
 				return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
 			}
-			Audi audi = db.Audis.Find(id);
-			if (audi== null)
+			Volkswagen volkswagen = db.Volkswagens.Find(id);
+			if (volkswagen == null)
 			{
 				return HttpNotFound();
 			}
@@ -199,15 +197,15 @@ namespace Autotookoda1.Controllers
 			{
 				switch (part)
 				{
-					case "maks": { audi.tasutud = result; break; }
-					case "parandus": { audi.parandatud = result; break; }
-				
+					case "maks": { volkswagen.tasutud = result; break; }
+					case "parandus": { volkswagen.parandatud = result; break; }
+
 
 					default:
 						{ return HttpNotFound(); }
 						break;
 				}
-				db.Entry(audi).State = EntityState.Modified;
+				db.Entry(volkswagen).State = EntityState.Modified;
 				db.SaveChanges();
 				return RedirectToAction("Index");
 			}
@@ -215,32 +213,32 @@ namespace Autotookoda1.Controllers
 
 
 		}
-		// nüüd on sama asi ainult parandamise oma kõigepealt vaade et näha kas töölised on saanud projekti valmis ning seejärel kui on valmis ja juht on selle ära märkinud kaob see ära sealt vaatest.
+
 		public ActionResult parandus()
-			{
-				var audis = db.Audis.
-					Where(m => m.parandatud == -1).
-					ToList();
-				return View(audis);
+		{
+			var volkswagens = db.Volkswagens.
+				Where(m => m.parandatud == -1).
+				ToList();
+			return View(volkswagens);
 
-			}
+		}
 
-		
+
 
 		// POST: Audis/Edit/5
 		// To protect from overposting attacks, please enable the specific properties you want to bind to, for 
 		// more details see https://go.microsoft.com/fwlink/?LinkId=317598.
 		[HttpPost]
 		[ValidateAntiForgeryToken]
-		public ActionResult Parandamine([Bind(Include = "id,tellija,auto,viga,parandatud,tasutud")] Audi audi)
+		public ActionResult Parandamine([Bind(Include = "id,tellija,auto,viga,parandatud,tasutud")] Volkswagen volkswagen)
 		{
 			if (ModelState.IsValid)
 			{
-				db.Entry(audi).State = EntityState.Modified;
+				db.Entry(volkswagen).State = EntityState.Modified;
 				db.SaveChanges();
 				return RedirectToAction("Index");
 			}
-			return View(audi);
+			return View(volkswagen);
 		}
 
 	}

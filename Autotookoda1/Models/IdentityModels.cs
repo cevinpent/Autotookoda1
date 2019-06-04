@@ -31,5 +31,7 @@ namespace Autotookoda1.Models
         }
 
 		public System.Data.Entity.DbSet<Autotookoda1.Models.Audi> Audis { get; set; }
+
+		public System.Data.Entity.DbSet<Autotookoda1.Models.Volkswagen> Volkswagens { get; set; }
 	}
 }

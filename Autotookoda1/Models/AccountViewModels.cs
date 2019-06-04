@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 namespace Autotookoda1.Models
 {
     public class ExternalLoginConfirmationViewModel
-    {
+    {//see mudel on vajalik et toimuks sisse logimine.
         [Required]
         [Display(Name = "Email")]
         public string Email { get; set; }

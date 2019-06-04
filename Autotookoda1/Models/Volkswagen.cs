@@ -5,9 +5,9 @@ using System.Web;
 
 namespace Autotookoda1.Models
 {
-	public class Audi
+	public class Volkswagen
 	{
-		public int id { get; set; }// lisasin mudelisse andmed mida läheb vaja mul selles ülesanndes.
+		public int id { get; set; }
 
 		public string tellija { get; set; }
 		public string auto { get; set; }

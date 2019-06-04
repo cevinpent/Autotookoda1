@@ -43,7 +43,7 @@ template {
   display: none;
 }
 a {
-  background-color: transparent;
+  background-color: dodgerblue;
 }
 a:active,
 a:hover {
@@ -239,6 +239,7 @@ th {
     page-break-after: avoid;
   }
   .navbar {
+      background-color: gold
     display: none;
   }
   .btn > .caret,
@@ -1086,7 +1087,7 @@ body {
   font-size: 14px;
   line-height: 1.42857143;
   color: #333;
-  background-color: #fff;
+  background-color: #337ab7;
 }
 input,
 button,
@@ -4334,7 +4335,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
     float: none;
     width: auto;
     margin-top: 0;
-    background-color: transparent;
+    background-color: indigo;
     border: 0;
     -webkit-box-shadow: none;
             box-shadow: none;
@@ -4481,9 +4482,9 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   }
 }
 @media (min-width: 768px) {
-  .navbar-left {
-    float: left !important;
-  }
+    .navbar-left {
+        float: left !important;
+    }
   .navbar-right {
     float: right !important;
     margin-right: -15px;
@@ -4493,7 +4494,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   }
 }
 .navbar-default {
-  background-color: #f8f8f8;
+  background-color: #3c763d;
   border-color: #e7e7e7;
 }
 .navbar-default .navbar-brand {
@@ -6124,7 +6125,7 @@ button.close {
   word-spacing: normal;
   word-wrap: normal;
   white-space: normal;
-  background-color: #fff;
+  background-color: #337ab7;
   -webkit-background-clip: padding-box;
           background-clip: padding-box;
   border: 1px solid #ccc;

@@ -5,7 +5,7 @@
 }
 
 <h2>Index</h2>
-
+@*// üldvaade kus näed kus maal on milline tellimus*@
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
@@ -31,42 +31,52 @@
 
     @foreach (var item in Model)
     {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.tellija)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.auto)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.viga)
-        </td>
-        <td>
-            @if (item.parandatud == 1)
-            {
-                @:Parandatud
-            }
-            else if (item.parandatud == -1)
-            {
-                @:Pole veel parandatud
-            }
-        </td>
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.tellija)
+            </td>
+       
+       
+            <td>
+                @Html.DisplayFor(modelItem => item.auto)
 
+            </td>
+
+
+            <td>
+                @Html.DisplayFor(modelItem => item.viga)
+            </td>
         
-            
-        </td>
+         
+            <td>
+                @if (item.parandatud == 1)
+                {
+                    @:Parandatud
+                }
+                else if (item.parandatud == -1)
+                {
+                    @:Pole veel parandatud
+                }
+            </td>
+
+
+          
+            <td>
+                @if (item.tasutud == 1)
+                {
+                    @:Klient on teenuse eest tasunud
+                }
+                else if (item.tasutud == -1)
+                {
+                    @:Klient pole veel teenuse eest tasunud
+                }
+
+            </td>
+        
         <td>
-            @if (item.tasutud == 1)
-            {
-                @:Klient on teenuse eest tasunud
-            }
-            else if (item.tasutud == -1)
-            {
-                @:Klient pole veel teenuse eest tasunud
-            }
-            
+            <li>@Html.ActionLink("Eemalda Tellimus", "Delete", "audis")</li>
         </td>
-    </tr>
+   </tr>
 
     }
 

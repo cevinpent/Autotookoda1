@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <title>@ViewBag.Title </title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 
@@ -21,9 +21,11 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("parandus", "parandus", "audis")</li>
+              
                     <li>@Html.ActionLink("Tellimuse esitamine", "telli", "audis")</li>
-                    <li>@Html.ActionLink("maks", "maks", "audis")</li>
+                    <li>@Html.ActionLink("Hetkel järjekorras olevad tööd", "parandus", "audis")</li>
+                    <li>@Html.ActionLink("Maksmise seis", "maks", "audis")</li>
+                    <li>@Html.ActionLink("Ülevaade", "Index", "audis")</li>
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>
@@ -32,13 +34,16 @@
     <div class="container body-content">
         @RenderBody()
         <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+        <footer>@*//lisasin siia  täpse kuupäeva rakendus ise uuendab seda vastavalt päevale*@ 
+            <p>&copy; @DateTime.Now.Day/@DateTime.Now.Month/@DateTime.Now.Year</p>
+            <p>Kontakt andmed: 57843843 <br />
+             E-mail: Autoparandus@Auto.ee</p>
         </footer>
     </div>
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
+
 </body>
 </html>

@@ -42,20 +42,20 @@
         <td>
             @Html.DisplayFor(modelItem => item.tasutud)
 
-        </td>
+        </td> 
         <td>
             @if (item.tasutud == 1)
             {
-                @:Valmis
+                @:Tasutud 
             }
             else if (item.tasutud == -1)
             {
-                @:Pole valmis
+                @:Tasumata
             }
         </td>
-      
+      @*// kuvab kas teenuse eest on tasutud kui  vajutada nuppu.*@
         <td>
-            @Html.ActionLink("Valmis", "PassFail", new { id = item.id, part = "maks", result = 1 })
+            @Html.ActionLink("Tasutud", "PassFail", new { id = item.id, part = "maks", result = 1 })
 
         </td>
 
